@@ -6,8 +6,8 @@ public class RubberDuck implements Duck {
     private QuackBehavior quackBehavior;
 
     public RubberDuck(FlyBehavior flyBehavior, QuackBehavior quackBehavior) {
-        this.flyBehavior = flyBehavior;
-        this.quackBehavior = quackBehavior;
+        setFlyBehavior(flyBehavior);
+        setQuackBehavior(quackBehavior);
     }
 
     public void display() {
@@ -20,15 +20,25 @@ public class RubberDuck implements Duck {
 
     @Override
     public final void setFlyBehavior(FlyBehavior flyBehavior) {
-        this.flyBehavior = flyBehavior;
-    }
+        if (flyBehavior == null){
+            throw new NullPointerException();
+        } else {
+            this.flyBehavior = flyBehavior;
+        }
 
+    }
+    
     public final QuackBehavior getQuackBehavior() {
         return quackBehavior;
     }
 
+    @Override
     public final void setQuackBehavior(QuackBehavior quackBehavior) {
+        if (quackBehavior == null){
+            throw new NullPointerException();
+        } else{
         this.quackBehavior = quackBehavior;
+        }
     }
 
     @Override

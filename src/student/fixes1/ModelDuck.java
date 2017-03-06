@@ -6,9 +6,9 @@ public class ModelDuck implements Duck {
     private QuackBehavior quackBehavior;
 
     public ModelDuck(FlyBehavior flyBehavior, QuackBehavior quackBehavior) {
-        // these properties are inherited from Duck
-        this.flyBehavior = flyBehavior;
-        this.quackBehavior = quackBehavior;
+
+        setFlyBehavior(flyBehavior);
+        setQuackBehavior(quackBehavior);
     }
 
     public final void display() {
@@ -17,12 +17,21 @@ public class ModelDuck implements Duck {
 
     @Override
     public final void setFlyBehavior(FlyBehavior flyBehavior) {
-        this.flyBehavior = flyBehavior;
+        if (flyBehavior == null){
+            throw new NullPointerException();
+        } else {
+            this.flyBehavior = flyBehavior;
+        }
+
     }
 
     @Override
     public final void setQuackBehavior(QuackBehavior quackBehavior) {
+        if (quackBehavior == null){
+            throw new NullPointerException();
+        } else{
         this.quackBehavior = quackBehavior;
+        }
     }
 
     @Override
